@@ -9,8 +9,6 @@ func ListTriggers(auth Auth) *Resource {
 
 }
 
-
-
 func ListActiveTriggers(auth Auth) *Resource {
 
 	path := auth.Subdomain + "/api/v2/" + "/triggers/active.json"

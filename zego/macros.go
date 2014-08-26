@@ -9,8 +9,6 @@ func ListMacros(auth Auth) *Resource {
 
 }
 
-
-
 func ApplyMacro(auth Auth, ticket_id string, macro_id string) *Resource {
 
 	path := auth.Subdomain + "/api/v2/" + "/tickets/" + ticket_id + "/macros/" + macro_id + "/apply.json"
