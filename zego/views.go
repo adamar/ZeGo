@@ -1,9 +1,9 @@
 package zego
 
-func ListViews(auth Auth) *Resource {
+func (a Auth) ListViews() *Resource {
 
-	path := auth.Subdomain + "/api/v2/" + "/views.json"
-	resource := api(auth, "GET", path, "")
+	path := a.Subdomain + "/api/v2/" + "/views.json"
+	resource := api(a, "GET", path, "")
 
 	return resource
 

@@ -2,11 +2,16 @@ package zego
 
 import (
 	"log"
-	//"net/url"
 	"crypto/tls"
 	"io/ioutil"
 	"net/http"
 )
+
+
+type Connector interface {
+    ListViews() *Resource
+}
+
 
 type Resource struct {
 	//Headers     http.Header
