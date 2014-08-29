@@ -2,7 +2,7 @@ package zego
 
 func ListingTickets(auth Auth) *Resource {
 
-	path := auth.Subdomain + "/api/v2/tickets.json"
+	path := "/api/v2/tickets.json"
 	resource := api(auth, "GET", path, "")
 
 	return resource
@@ -11,7 +11,7 @@ func ListingTickets(auth Auth) *Resource {
 
 func GetTicket(auth Auth, ticket_id string) *Resource {
 
-	path := auth.Subdomain + "/api/v2/" + "/tickets/" + ticket_id + ".json"
+	path := "/api/v2/" + "/tickets/" + ticket_id + ".json"
 	resource := api(auth, "GET", path, "")
 
 	return resource
@@ -20,7 +20,7 @@ func GetTicket(auth Auth, ticket_id string) *Resource {
 
 func GetMultipleTickets(auth Auth, ticket_id string) *Resource {
 
-	path := auth.Subdomain + "/api/v2/" + "/tickets/" + ticket_id + ".json"
+	path := "/api/v2/" + "/tickets/" + ticket_id + ".json"
 	resource := api(auth, "GET", path, "")
 
 	return resource
@@ -29,7 +29,7 @@ func GetMultipleTickets(auth Auth, ticket_id string) *Resource {
 
 func GetTicketComments(auth Auth, ticket_id string) *Resource {
 
-	path := auth.Subdomain + "/api/v2/" + "/tickets/" + ticket_id + "/comments.json"
+	path := "/api/v2/" + "/tickets/" + ticket_id + "/comments.json"
 	resource := api(auth, "GET", path, "")
 
 	return resource
@@ -38,7 +38,7 @@ func GetTicketComments(auth Auth, ticket_id string) *Resource {
 
 func DeleteTicket(auth Auth, ticket_id string) *Resource {
 
-	path := auth.Subdomain + "/api/v2/" + "/tickets/" + ticket_id + ".json"
+	path := "/api/v2/" + "/tickets/" + ticket_id + ".json"
 	resource := api(auth, "DELETE", path, "")
 
 	return resource

@@ -41,7 +41,7 @@ func api(auth Auth, meth string, path string, params string) *Resource {
 		Transport: trn,
 	}
 
-	req, err := http.NewRequest(meth, "https://"+path, nil)
+	req, err := http.NewRequest(meth, "https://" + auth.Subdomain + "/api/v2/" + path, nil)
 	errHandler(err)
 
 	req.Header.Add("Content-Type", "application/json")
