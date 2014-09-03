@@ -9,37 +9,37 @@ func (a Auth) ListTickets() *Resource {
 
 }
 
-func GetTicket(auth Auth, ticket_id string) *Resource {
+func (a Auth) GetTicket(ticket_id string) *Resource {
 
-	path := "/api/v2/" + "/tickets/" + ticket_id + ".json"
-	resource := api(auth, "GET", path, "")
-
-	return resource
-
-}
-
-func GetMultipleTickets(auth Auth, ticket_id string) *Resource {
-
-	path := "/api/v2/" + "/tickets/" + ticket_id + ".json"
-	resource := api(auth, "GET", path, "")
+	path := "/tickets/" + ticket_id + ".json"
+	resource := api(a, "GET", path, "")
 
 	return resource
 
 }
 
-func GetTicketComments(auth Auth, ticket_id string) *Resource {
+func (a Auth) GetMultipleTickets(ticket_id string) *Resource {
 
-	path := "/api/v2/" + "/tickets/" + ticket_id + "/comments.json"
-	resource := api(auth, "GET", path, "")
+	path := "/tickets/" + ticket_id + ".json"
+	resource := api(a, "GET", path, "")
 
 	return resource
 
 }
 
-func DeleteTicket(auth Auth, ticket_id string) *Resource {
+func (a Auth) GetTicketComments(ticket_id string) *Resource {
 
-	path := "/api/v2/" + "/tickets/" + ticket_id + ".json"
-	resource := api(auth, "DELETE", path, "")
+	path := "/tickets/" + ticket_id + "/comments.json"
+	resource := api(a, "GET", path, "")
+
+	return resource
+
+}
+
+func (a Auth) DeleteTicket(ticket_id string) *Resource {
+
+	path := "/tickets/" + ticket_id + ".json"
+	resource := api(a, "DELETE", path, "")
 
 	return resource
 
