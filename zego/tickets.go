@@ -1,9 +1,9 @@
 package zego
 
-func ListingTickets(auth Auth) *Resource {
+func (a Auth) ListTickets() *Resource {
 
-	path := "/api/v2/tickets.json"
-	resource := api(auth, "GET", path, "")
+	path := "/tickets.json"
+	resource := api(a, "GET", path, "")
 
 	return resource
 

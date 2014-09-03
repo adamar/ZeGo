@@ -8,7 +8,7 @@ import (
 func main() {
 
 	auth := zego.Auth{"user@example.com", "password", "subdomain.zendesk.com"}
-        tickets := zego.GetTicket(auth,  "4542")
+        tickets := auth.ListTickets()
 	log.Print(tickets)
 
 }

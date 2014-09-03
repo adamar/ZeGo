@@ -5,6 +5,7 @@ import (
 	"crypto/tls"
 	"io/ioutil"
 	"net/http"
+        "time"
 )
 
 
@@ -35,10 +36,6 @@ type Ticket struct {
   Via                interface{}
 }
 
-
-type Connector interface {
-    ListViews() *Resource
-}
 
 
 type Resource struct {
