@@ -5,17 +5,26 @@ import (
 	"crypto/tls"
 	"io/ioutil"
 	"net/http"
-        "time"
-)
+        //"time"
+       )
+
+
+type TicketArray struct {
+    Count          int
+    Created        string //time.Time
+    Next_page      string
+    Previous_page  string
+    Tickets        []Ticket
+}
 
 
 type Ticket struct {
   Id                 uint32
   Url                string
   External_id        string
-  Created_at         time.Time
-  Updated_at         time.Time
-  Ttype              string
+  Created_at         string //time.Time
+  Updated_at         string //time.Time
+  Type               string
   Subject            string
   Raw_subject        string
   Description        string
@@ -31,9 +40,14 @@ type Ticket struct {
   Forum_topic_id     uint32
   Problem_id         uint32
   Has_incidents      bool
-  Due_at             time.Time
+  Due_at             string //time.Time
   Tags               []string
+  Satisfaction_rating  string
+  Ticket_form_id         uint32
+  Sharing_agreement_ids  interface{}
   Via                interface{}
+  Custom_Fields      interface{}
+  Fields             interface{}
 }
 
 
