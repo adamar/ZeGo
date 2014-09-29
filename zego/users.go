@@ -1,6 +1,6 @@
 package zego
 
-func ListUsers(auth Auth) *Resource {
+func (a Auth) ListUsers() *Resource {
 
 	path := "/api/v2/users.json"
 	resource := api(auth, "GET", path, "")
@@ -9,18 +9,18 @@ func ListUsers(auth Auth) *Resource {
 
 }
 
-func ShowUser(auth Auth, user_id string) *Resource {
+func (a Auth) ShowUser(user_id string) *Resource {
 
-	path := "/api/v2/users/" + user_id + ".json"
+	path := "/users/" + user_id + ".json"
 	resource := api(auth, "GET", path, "")
 
 	return resource
 
 }
 
-func ShowUserRelated(auth Auth, user_id string) *Resource {
+func (a Auth) ShowUserRelated(user_id string) *Resource {
 
-	path := "/api/v2/users/" + user_id + "/related.json"
+	path := "/users/" + user_id + "/related.json"
 	resource := api(auth, "GET", path, "")
 
 	return resource
