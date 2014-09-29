@@ -1,17 +1,17 @@
 package zego
 
-func ListTriggers(auth Auth) *Resource {
+func (a Auth) ListTriggers() *Resource {
 
-	path := "/api/v2/" + "/triggers.json"
+	path := "/triggers.json"
 	resource := api(auth, "GET", path, "")
 
 	return resource
 
 }
 
-func ListActiveTriggers(auth Auth) *Resource {
+func (a Auth) ListActiveTriggers() *Resource {
 
-	path := "/api/v2/" + "/triggers/active.json"
+	path := "/triggers/active.json"
 	resource := api(auth, "GET", path, "")
 
 	return resource
