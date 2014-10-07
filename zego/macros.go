@@ -1,19 +1,25 @@
 package zego
 
-func (a Auth) ListMacros() *Resource {
+func (a Auth) ListMacros() (*Resource, error) {
 
 	path := "/macros.json"
-	resource := api(a, "GET", path, "")
+	resource, err := api(a, "GET", path, "")
+        if err != nil {
+		return nil, err
+	}
 
-	return resource
+	return resource, nil
 
 }
 
-func (a Auth) ApplyMacro(ticket_id string, macro_id string) *Resource {
+func (a Auth) ApplyMacro(ticket_id string, macro_id string) (*Resource, error) {
 
 	path := "/tickets/" + ticket_id + "/macros/" + macro_id + "/apply.json"
-	resource := api(a, "GET", path, "")
+	resource, err := api(a, "GET", path, "")
+        if err != nil {
+		return nil, err
+	}
 
-	return resource
+	return resource, nil
 
 }

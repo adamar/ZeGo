@@ -1,46 +1,61 @@
 package zego
 
-func (a Auth) ListTickets() *Resource {
+func (a Auth) ListTickets() (*Resource, error) {
 
 	path := "/tickets.json"
-	resource := api(a, "GET", path, "")
+	resource, err := api(a, "GET", path, "")
+        if err != nil {
+		return nil, err
+	}
 
-	return resource
+	return resource, nil
 
 }
 
-func (a Auth) GetTicket(ticket_id string) *Resource {
+func (a Auth) GetTicket(ticket_id string) (*Resource, error) {
 
 	path := "/tickets/" + ticket_id + ".json"
-	resource := api(a, "GET", path, "")
+	resource, err := api(a, "GET", path, "")
+        if err != nil {
+		return nil, err
+	}
 
-	return resource
+	return resource, nil
 
 }
 
-func (a Auth) GetMultipleTickets(ticket_id string) *Resource {
+func (a Auth) GetMultipleTickets(ticket_id string) (*Resource, error) {
 
 	path := "/tickets/" + ticket_id + ".json"
-	resource := api(a, "GET", path, "")
+	resource, err := api(a, "GET", path, "")
+        if err != nil {
+		return nil, err
+	}
 
-	return resource
+	return resource, nil
 
 }
 
-func (a Auth) GetTicketComments(ticket_id string) *Resource {
+func (a Auth) GetTicketComments(ticket_id string) (*Resource, error) {
 
 	path := "/tickets/" + ticket_id + "/comments.json"
-	resource := api(a, "GET", path, "")
+	resource, err := api(a, "GET", path, "")
+        if err != nil {
+		return nil, err
+	}
 
-	return resource
+	return resource, nil
 
 }
 
-func (a Auth) DeleteTicket(ticket_id string) *Resource {
+func (a Auth) DeleteTicket(ticket_id string) (*Resource, error) {
 
 	path := "/tickets/" + ticket_id + ".json"
-	resource := api(a, "DELETE", path, "")
+	resource, err := api(a, "DELETE", path, "")
+        if err != nil {
+		return nil, err
+	}
 
-	return resource
+	return resource, nil
 
 }

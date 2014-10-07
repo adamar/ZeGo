@@ -69,7 +69,7 @@ func errHandler(err error) {
 	}
 }
 
-func api(auth Auth, meth string, path string, params string) *Resource {
+func api(auth Auth, meth string, path string, params string) (*Resource, error) {
 
 	trn := &http.Transport{}
 
@@ -78,19 +78,26 @@ func api(auth Auth, meth string, path string, params string) *Resource {
 	}
 
 	req, err := http.NewRequest(meth, "https://" + auth.Subdomain + "/api/v2/" + path, nil)
-	errHandler(err)
+	if err != nil {
+		return nil, err
+	}
 
 	req.Header.Add("Content-Type", "application/json")
 
 	req.SetBasicAuth(auth.Username, auth.Password)
 
 	resp, err := client.Do(req)
+        if err != nil {
+		return nil, err
+	}
+
 	defer resp.Body.Close()
-	errHandler(err)
 
 	data, err := ioutil.ReadAll(resp.Body)
-	errHandler(err)
+        if err != nil {
+		return nil, err
+	}
 
-	return &Resource{Response: &resp, Raw: string(data)}
+	return &Resource{Response: &resp, Raw: string(data)}, nil
 
 }
