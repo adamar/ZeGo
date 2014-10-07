@@ -2,7 +2,6 @@ package zego
 
 import (
 	"log"
-	"crypto/tls"
 	"io/ioutil"
 	"net/http"
         //"time"
@@ -72,9 +71,7 @@ func errHandler(err error) {
 
 func api(auth Auth, meth string, path string, params string) *Resource {
 
-	trn := &http.Transport{
-		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
-	}
+	trn := &http.Transport{}
 
 	client := &http.Client{
 		Transport: trn,
