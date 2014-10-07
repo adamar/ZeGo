@@ -3,7 +3,7 @@ package zego
 func (a Auth) ListTriggers() *Resource {
 
 	path := "/triggers.json"
-	resource := api(auth, "GET", path, "")
+	resource := api(a, "GET", path, "")
 
 	return resource
 
@@ -12,7 +12,7 @@ func (a Auth) ListTriggers() *Resource {
 func (a Auth) ListActiveTriggers() *Resource {
 
 	path := "/triggers/active.json"
-	resource := api(auth, "GET", path, "")
+	resource := api(a, "GET", path, "")
 
 	return resource
 
