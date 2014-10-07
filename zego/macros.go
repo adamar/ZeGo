@@ -4,7 +4,7 @@ func (a Auth) ListMacros() (*Resource, error) {
 
 	path := "/macros.json"
 	resource, err := api(a, "GET", path, "")
-        if err != nil {
+	if err != nil {
 		return nil, err
 	}
 
@@ -16,7 +16,7 @@ func (a Auth) ApplyMacro(ticket_id string, macro_id string) (*Resource, error) {
 
 	path := "/tickets/" + ticket_id + "/macros/" + macro_id + "/apply.json"
 	resource, err := api(a, "GET", path, "")
-        if err != nil {
+	if err != nil {
 		return nil, err
 	}
 

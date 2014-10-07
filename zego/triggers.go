@@ -4,7 +4,7 @@ func (a Auth) ListTriggers() (*Resource, error) {
 
 	path := "/triggers.json"
 	resource, err := api(a, "GET", path, "")
-        if err != nil {
+	if err != nil {
 		return nil, err
 	}
 
@@ -16,7 +16,7 @@ func (a Auth) ListActiveTriggers() (*Resource, error) {
 
 	path := "/triggers/active.json"
 	resource, err := api(a, "GET", path, "")
-        if err != nil {
+	if err != nil {
 		return nil, err
 	}
 
