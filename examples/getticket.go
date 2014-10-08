@@ -8,7 +8,9 @@ import (
 func main() {
 
 	auth := zego.Auth{"user@example.com", "password", "subdomain.zendesk.com"}
-        tickets := auth.ListTickets()
+        response := auth.ListTickets()
+        tickets := &zego.TicketArray{}
+        json.Unmarshal([]byte(response.Raw), tickets)
 	log.Print(tickets)
 
 }
