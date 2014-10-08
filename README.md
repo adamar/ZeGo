@@ -11,7 +11,7 @@ Usage:
 
 ```sh
 auth := zego.Auth{"username", "password", "subdomain.zendesk.com"}
-response := auth.ListTickets()
+response, _ := auth.ListTickets()
 tickets := &zego.TicketArray{}
 json.Unmarshal([]byte(response.Raw), tickets)
 ```
