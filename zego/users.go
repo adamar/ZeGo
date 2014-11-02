@@ -1,5 +1,11 @@
 package zego
 
+
+type UserArray struct {
+        Users       []User
+}
+
+
 type User struct {
         Id                    uint32
         Url                   string
@@ -14,7 +20,7 @@ type User struct {
         Shared_agent          bool
         Locale                string
         Locale_id             uint32
-        Time_zone             string 
+        Time_zone             string
         Last_login_at         string
         Email                 string
         Phone                 string
