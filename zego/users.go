@@ -2,7 +2,7 @@ package zego
 
 func (a Auth) ListUsers() (*Resource, error) {
 
-	path := "/api/v2/users.json"
+	path := "/users.json"
 	resource, err := api(a, "GET", path, "")
 	if err != nil {
 		return nil, err
