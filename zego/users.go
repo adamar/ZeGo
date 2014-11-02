@@ -4,17 +4,17 @@ type User struct {
         Id                    uint32
         Url                   string
         Name                  string
-        External_id
-        Alias
-        Created_at
-        Updated_at
-        Active
-        Verified
-        Shared
-        Shared_agent
-        Locale
-        Locale_id
-        Time_zone
+        External_id           string
+        Alias                 string
+        Created_at            string
+        Updated_at            string
+        Active                bool
+        Verified              bool
+        Shared                bool
+        Shared_agent          bool
+        Locale                string
+        Locale_id             uint32
+        Time_zone             
         Last_login_at
         Email
         Phone
