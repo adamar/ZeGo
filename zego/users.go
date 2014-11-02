@@ -14,24 +14,24 @@ type User struct {
         Shared_agent          bool
         Locale                string
         Locale_id             uint32
-        Time_zone             
-        Last_login_at
-        Email
-        Phone
-        Signature
-        Details
-        Notes
-        Organization_id
-        Role
-        Customer_role_id
-        Moderator
-        Ticket_restriction
-        Only_private_comments
-        Tags
-        Restricted_agent
-        Suspended
-        Photo
-        User_fields
+        Time_zone             string 
+        Last_login_at         string
+        Email                 string
+        Phone                 string
+        Signature             string
+        Details               string
+        Notes                 string
+        Organization_id       uint32
+        Role                  string
+        Customer_role_id      uint32
+        Moderator             bool
+        Ticket_restriction    string
+        Only_private_comments bool
+        Tags                  []string
+        Restricted_agent      bool
+        Suspended             bool
+        Photo                 interface{}
+        User_fields           interface{}
 }
 
 
