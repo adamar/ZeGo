@@ -7,37 +7,37 @@ type UserArray struct {
 
 
 type User struct {
-        Id                    uint32
-        Url                   string
-        Name                  string
-        External_id           string
-        Alias                 string
-        Created_at            string
-        Updated_at            string
-        Active                bool
-        Verified              bool
-        Shared                bool
-        Shared_agent          bool
-        Locale                string
-        Locale_id             uint32
-        Time_zone             string
-        Last_login_at         string
-        Email                 string
-        Phone                 string
-        Signature             string
-        Details               string
-        Notes                 string
-        Organization_id       uint32
-        Role                  string
-        Customer_role_id      uint32
-        Moderator             bool
-        Ticket_restriction    string
-        Only_private_comments bool
-        Tags                  []string
-        Restricted_agent      bool
-        Suspended             bool
-        Photo                 interface{}
-        User_fields           interface{}
+        Id                    uint32 `json:"id"`
+        Url                   string `json:"url"`
+        Name                  string `json:"name"`
+        External_id           string `json:"external_id"`
+        Alias                 string `json:"alias"`
+        Created_at            string `json:"created_at"`
+        Updated_at            string `json:"updated_at"`
+        Active                bool `json:"active"`
+        Verified              bool `json:"verified"`
+        Shared                bool `json:"shared"`
+        Shared_agent          bool `json:"shared_agent"`
+        Locale                string `json:"locale"`
+        Locale_id             uint32 `json:"locale_id"`
+        Time_zone             string `json:"time_zone"`
+        Last_login_at         string `json:"last_login_at"`
+        Email                 string `json:"email"`
+        Phone                 string `json:"phone"`
+        Signature             string `json:"signature"`
+        Details               string `json:"details"`
+        Notes                 string `json:"notes"`
+        Organization_id       uint32 `json:"organization_id"`
+        Role                  string `json:"role"`
+        Customer_role_id      uint32 `json:"custom_role_id"`
+        Moderator             bool `json:"moderator"`
+        Ticket_restriction    string `json:"ticket_restriction"`
+        Only_private_comments bool `json:"only_private_comments"`
+        Tags                  []string `json:"tags"`
+        Restricted_agent      bool `json:"restricted_agent"`
+        Suspended             bool `json:"suspended"`
+        Photo                 interface{} `json:"photo"`
+        User_fields           interface{} `json:"user_fields"`
 }
 
 
