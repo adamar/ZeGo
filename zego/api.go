@@ -4,7 +4,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
-	//"time"
+	"strings"
 )
 
 
@@ -34,7 +34,15 @@ func api(auth Auth, meth string, path string, params string) (*Resource, error) 
 		Transport: trn,
 	}
 
-	req, err := http.NewRequest(meth, "https://"+auth.Subdomain+"/api/v2/"+path, nil)
+    var URL string
+    if strings.HasPrefix(auth.Subdomain, "http") {
+        URL = auth.Subdomain + "/api/v2/" + path
+    } else {
+        URL = "https://" + auth.Subdomain + "/api/v2/" + path
+    }
+
+
+	req, err := http.NewRequest(meth, URL, nil)
 	if err != nil {
 		return nil, err
 	}
