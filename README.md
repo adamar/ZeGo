@@ -2,6 +2,8 @@
 ZeGo: Zendesk API wrapper for Golang
 ====================================
 
+![zego](https://raw.githubusercontent.com/adamar/zego/master/doc/zendesk_logo.png)
+
 ## About:
 
 A simple (hopefully) library for interfacing with the Zendesk v2 API
