@@ -20,7 +20,14 @@ type EndUser struct {
 
 
 
-
+type Photo struct {
+    Id             int `json:"id"`
+    Name           string `json:"name"`
+    ContentUrl     string `json:"content_url"`
+    ContentType    string `json:"content_type"`
+    Size           int `json:"size"`
+    Thumbnails     []*Thumbnail `json:"thumbnails"`
+}
 
 
 
