@@ -36,9 +36,26 @@ type User struct {
         Tags                  []string `json:"tags"`
         Restricted_agent      bool `json:"restricted_agent"`
         Suspended             bool `json:"suspended"`
-        Photo                 interface{} `json:"photo"`
-        User_fields           interface{} `json:"user_fields"`
+        Photo                 []*Photo `json:"photo"`
+        User_fields           []*User_Field `json:"user_fields"`
 }
+
+
+type Photo struct {
+        Id                    int `json:"id"`
+        Name                  string `json:"name"`
+        ContentUrl            string `json:"content_url"`
+        ContentType           string `json:"content_type"`
+        Size                  int `json:"size"`
+}
+
+
+type User_Field struct {
+    UserDecimal               float32 `json:"user_decimal"`
+    UserDropdown              string `json:"user_dropdown"`
+    UserDate                  string `json:"user_date"`
+}
+
 
 
 
