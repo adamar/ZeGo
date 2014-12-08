@@ -2,7 +2,9 @@
 ZeGo: Zendesk API wrapper for Golang
 ====================================
 
-![][logo]
+<p align="center">
+  <img src="https://raw.githubusercontent.com/adamar/zego/master/doc/zendesk_logo.png" alt="Zendesk Logo"/>
+</p>
 
 
 ## About:
@@ -40,4 +42,3 @@ json.Unmarshal([]byte(response.Raw), tickets)
 - GET `/api/v2/views.json`
 
 
-[logo]: https://raw.githubusercontent.com/adamar/zego/master/doc/zendesk_logo.png
