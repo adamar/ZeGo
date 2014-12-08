@@ -1,7 +1,7 @@
 package zego
 
 
-View struct {
+type View struct {
     Id           int `json:"id"`
     Title        string `json:"title"`
     Active       bool `json:"active"`
@@ -12,7 +12,7 @@ View struct {
 }
 
 
-Restriction  struct {
+type Restriction  struct {
     Type         string `json:"type"`
     Id           int `json:"id"`
 } 

@@ -1,5 +1,20 @@
 package zego
 
+
+type Macro struct {
+    Id           int `json:"id"`
+    Title        string `json:"title"`
+    Active       bool `json:"active"`
+    Actions      interface{} 
+    Restriction  Macro_Restriction `json:"restriction"`
+}
+
+type Macro_Restriction struct {
+    Type         string `json:"type"`
+    Id           int `json:"id"`
+}
+
+
 func (a Auth) ListMacros() (*Resource, error) {
 
 	path := "/macros.json"

@@ -36,12 +36,12 @@ type User struct {
         Tags                  []string `json:"tags"`
         Restricted_agent      bool `json:"restricted_agent"`
         Suspended             bool `json:"suspended"`
-        Photo                 []*Photo `json:"photo"`
+        Photo                 []*Users_Photo `json:"photo"`
         User_fields           []*User_Field `json:"user_fields"`
 }
 
 
-type Photo struct {
+type Users_Photo struct {
         Id                    int `json:"id"`
         Name                  string `json:"name"`
         ContentUrl            string `json:"content_url"`
