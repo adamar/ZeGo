@@ -53,3 +53,10 @@ json.Unmarshal([]byte(response.Raw), tickets)
 #### Triggers
 
 - GET `/api/v2/triggers/active.json`
+
+
+#### Satisfaction
+
+- GET `/api/v2/satisfaction_ratings.json`
+
+- GET `/api/v2/satisfaction_ratings/{id}.json`
