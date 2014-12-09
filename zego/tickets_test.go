@@ -8,7 +8,6 @@ import (
         "net/http"
         "fmt"
         "encoding/json"
-        "log"
         "github.com/adamar/zego/zego"
         )
 
@@ -125,7 +124,10 @@ func TestGetTicket(t *testing.T) {
     tickets := &zego.TicketArray{}
     json.Unmarshal([]byte(response.Raw), tickets)
 
-    log.Print(tickets)    
+    if tickets.Tickets[0].Id != 35436 {
+        t.Error("Ticket JSON unmarshalling error")
+    }
+
 
 }
 
