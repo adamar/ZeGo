@@ -22,7 +22,17 @@ type Result struct {
 }
 
 
+func (a Auth) Search(query string) (*Resource, error) {
 
+    path := "/search.json?query=" + query
+    resource, err := api(a, "GET", path, "")
+    if err != nil {
+        return nil, err
+    }
+
+    return resource, nil
+
+}
 
 
 
