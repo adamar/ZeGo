@@ -46,6 +46,17 @@ func (a Auth) ListActiveViews() (*Resource, error) {
 }
 
 
+func (a Auth) ListViewsCompact() (*Resource, error) {
+
+    path := "/views/compact.json"
+    resource, err := api(a, "GET", path, "")
+    if err != nil {
+        return nil, err
+    }
+
+    return resource, nil
+
+}
 
 
 
