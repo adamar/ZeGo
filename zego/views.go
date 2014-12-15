@@ -60,6 +60,17 @@ func (a Auth) ListViewsCompact() (*Resource, error) {
 
 
 
+func (a Auth) GetView(ticket_id string) (*Resource, error) {
+
+    path := "/views/" + ticket_id + ".json"
+    resource, err := api(a, "GET", path, "")
+    if err != nil {
+        return nil, err
+    }
+
+    return resource, nil
+
+}
 
 
 

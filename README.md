@@ -53,6 +53,8 @@ json.Unmarshal([]byte(response.Raw), tickets)
 
 - GET `/api/v2/views/compact.json`
 
+- GET `/api/v2/views/{id}.json
+
 
 #### Macros
 
