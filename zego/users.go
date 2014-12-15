@@ -94,3 +94,15 @@ func (a Auth) ShowUserRelated(user_id string) (*Resource, error) {
 	return resource, nil
 
 }
+
+func (a Auth) ListCollaborators(ticket_id string) (*Resource, error) {
+
+	path := "/tickets/" + ticket_id + "/collaborators.json"
+	resource, err := api(a, "GET", path, "")
+	if err != nil {
+		return nil, err
+	}
+
+	return resource, nil
+
+}

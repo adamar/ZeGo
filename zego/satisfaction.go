@@ -1,7 +1,7 @@
 
 package zego
 
-type Satisfaction_Ratings
+type Satisfaction_Ratings struct {
     Ratings            []*Satisfaction
 }
 
