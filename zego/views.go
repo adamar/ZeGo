@@ -30,3 +30,25 @@ func (a Auth) ListViews() (*Resource, error) {
 	return resource, nil
 
 }
+
+
+
+func (a Auth) ListActiveViews() (*Resource, error) {
+
+    path := "/views/active.json"
+    resource, err := api(a, "GET", path, "")
+    if err != nil {
+        return nil, err
+    }
+
+    return resource, nil
+
+}
+
+
+
+
+
+
+
+
