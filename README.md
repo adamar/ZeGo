@@ -40,7 +40,7 @@ json.Unmarshal([]byte(response.Raw), tickets)
 - DELETE `/api/v2/tickets/{id}.json`
 
 
-## Search
+#### Search
 
 - GET `/api/v2/search.json?query={search_string}`
 
