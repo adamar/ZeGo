@@ -1,7 +1,7 @@
 package zego
 
 type OrganizationArray struct {
-	Users []*Organization
+	Organizations []*Organization
 }
 
 type Organization struct {
@@ -21,7 +21,7 @@ type Organization struct {
 	OrganizationFields []*OrganizationalField `json:"organization_fields"`
 }
 
-type OrganizationField struct {
+type OrganizationalField struct {
 	OrgDropdown string  `json:"org_dropdown"`
 	OrgDecimal  float32 `json:"org_decimal"`
 }
