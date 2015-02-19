@@ -78,3 +78,12 @@ json.Unmarshal([]byte(response.Raw), tickets)
 - GET `/api/v2/satisfaction_ratings.json`
 
 - GET `/api/v2/satisfaction_ratings/{id}.json`
+
+
+#### Tags
+
+- GET `/api/v2/tickets/{id}/tags.json`
+
+- GET `/api/v2/topics/{id}/tags.json`
+
+- GET `/api/v2/organizations/{id}/tags.json`
