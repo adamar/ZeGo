@@ -1,5 +1,9 @@
 package zego
 
+type OrganizationArray struct {
+	Users []*Organization
+}
+
 type Organization struct {
 	Id                 int                    `json:"id"`
 	ExternalId         string                 `json:"external_id"`
