@@ -45,6 +45,13 @@ json.Unmarshal([]byte(response.Raw), tickets)
 - GET `/api/v2/search.json?query={search_string}`
 
 
+#### Organizations
+
+- GET `/api/v2/organizations.json`
+
+- GET `/api/v2/users/{user_id}/organizations.json`
+
+
 #### Views
 
 - GET `/api/v2/views.json`
