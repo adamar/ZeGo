@@ -1,12 +1,12 @@
 package zego
 
 import (
+	"bytes"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"strings"
 )
-
 
 type Resource struct {
 	//Headers     http.Header
@@ -34,15 +34,14 @@ func api(auth Auth, meth string, path string, params string) (*Resource, error) 
 		Transport: trn,
 	}
 
-    var URL string
-    if strings.HasPrefix(auth.Subdomain, "http") {
-        URL = auth.Subdomain + "/api/v2/" + path
-    } else {
-        URL = "https://" + auth.Subdomain + "/api/v2/" + path
-    }
+	var URL string
+	if strings.HasPrefix(auth.Subdomain, "http") {
+		URL = auth.Subdomain + "/api/v2/" + path
+	} else {
+		URL = "https://" + auth.Subdomain + "/api/v2/" + path
+	}
 
-
-	req, err := http.NewRequest(meth, URL, nil)
+	req, err := http.NewRequest(meth, URL, bytes.NewBufferString(params))
 	if err != nil {
 		return nil, err
 	}
