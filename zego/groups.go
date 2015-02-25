@@ -22,3 +22,15 @@ func (a Auth) GetGroups() (*Resource, error) {
 	return resource, nil
 
 }
+
+func (a Auth) GetUserGroups(user_id string) (*Resource, error) {
+
+	path := "/users/" + user_id + "/groups.json"
+	resource, err := api(a, "GET", path, "")
+	if err != nil {
+		return nil, err
+	}
+
+	return resource, nil
+
+}
