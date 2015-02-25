@@ -34,3 +34,15 @@ func (a Auth) GetUserGroups(user_id string) (*Resource, error) {
 	return resource, nil
 
 }
+
+func (a Auth) GetAssignableGroups() (*Resource, error) {
+
+	path := "/groups/assignable.json"
+	resource, err := api(a, "GET", path, "")
+	if err != nil {
+		return nil, err
+	}
+
+	return resource, nil
+
+}
