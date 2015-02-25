@@ -6,3 +6,19 @@ type Group struct {
 	UpdatedAt string `json:"updated_at"`
 	Id        int    `json:"id"`
 }
+
+type Groups struct {
+	Groups []*Group `json:"groups"`
+}
+
+func (a Auth) GetGroups() (*Resource, error) {
+
+	path := "/groups.json"
+	resource, err := api(a, "GET", path, "")
+	if err != nil {
+		return nil, err
+	}
+
+	return resource, nil
+
+}
