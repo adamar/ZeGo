@@ -1,5 +1,9 @@
 package zego
 
+import (
+	"encoding/json"
+)
+
 type TicketArray struct {
 	Count         int    `json:"count"`
 	Created       string `json:"created"`
@@ -67,7 +71,7 @@ func (a Auth) GetTicket(ticket_id string) (*Ticket, error) {
 		return nil, err
 	}
 
-	json.Unmarshal([]byte(response.Raw), TicketStruct)
+	json.Unmarshal([]byte(resource.Raw), TicketStruct)
 
 	return TicketStruct, nil
 
