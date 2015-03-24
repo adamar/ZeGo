@@ -48,7 +48,9 @@ type Ticket struct {
 	Fields                interface{} `json:"fields"`
 }
 
-func (a Auth) ListTickets(pag ...string) (*Resource, error) {
+func (a Auth) ListTickets(pag ...string) (*TicketArray, error) {
+
+	TicketStruct := &TicketArray{}
 
 	var path string
 	if len(pag) < 1 {
@@ -61,7 +63,9 @@ func (a Auth) ListTickets(pag ...string) (*Resource, error) {
 		return nil, err
 	}
 
-	return resource, nil
+	json.Unmarshal([]byte(resource.Raw), TicketStruct)
+
+	return TicketStruct, nil
 
 }
 
