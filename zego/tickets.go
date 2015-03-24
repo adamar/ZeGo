@@ -12,6 +12,10 @@ type TicketArray struct {
 	Tickets       []Ticket
 }
 
+type SingleTicket struct {
+	Ticket *Ticket `json:"ticket"`
+}
+
 type Ticket struct {
 	Id                    uint32      `json:"id"`
 	URL                   string      `json:"url"`
@@ -61,9 +65,9 @@ func (a Auth) ListTickets(pag ...string) (*Resource, error) {
 
 }
 
-func (a Auth) GetTicket(ticket_id string) (*Ticket, error) {
+func (a Auth) GetTicket(ticket_id string) (*SingleTicket, error) {
 
-	TicketStruct := &Ticket{}
+	TicketStruct := &SingleTicket{}
 
 	path := "/tickets/" + ticket_id + ".json"
 	resource, err := api(a, "GET", path, "")
