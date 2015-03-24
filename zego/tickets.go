@@ -57,7 +57,9 @@ func (a Auth) ListTickets(pag ...string) (*Resource, error) {
 
 }
 
-func (a Auth) GetTicket(ticket_id string) (*Resource, error) {
+func (a Auth) GetTicket(ticket_id string) (*Ticket, error) {
+
+	TicketStruct := &Ticket{}
 
 	path := "/tickets/" + ticket_id + ".json"
 	resource, err := api(a, "GET", path, "")
@@ -65,7 +67,9 @@ func (a Auth) GetTicket(ticket_id string) (*Resource, error) {
 		return nil, err
 	}
 
-	return resource, nil
+	json.Unmarshal([]byte(response.Raw), TicketStruct)
+
+	return TicketStruct, nil
 
 }
 
