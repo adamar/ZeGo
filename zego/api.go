@@ -36,7 +36,13 @@ func api(auth Auth, meth string, path string, params string) (*Resource, error) 
 
 	var URL string
 	if strings.HasPrefix(auth.Subdomain, "http") {
-		URL = auth.Subdomain + "/api/v2/" + path
+
+		// path contains entire url
+		if strings.HasPrefix(path, "http") {
+			URL = path
+		} else {
+			URL = auth.Subdomain + "/api/v2/" + path
+		}
 	} else {
 		URL = "https://" + auth.Subdomain + "/api/v2/" + path
 	}

@@ -40,9 +40,14 @@ type Ticket struct {
 	Fields                interface{} `json:"fields"`
 }
 
-func (a Auth) ListTickets() (*Resource, error) {
+func (a Auth) ListTickets(pag ...string) (*Resource, error) {
 
-	path := "/tickets.json"
+	var path string
+	if len(pag) < 1 {
+		path = "/tickets.json"
+	} else {
+		path = pag[0]
+	}
 	resource, err := api(a, "GET", path, "")
 	if err != nil {
 		return nil, err
