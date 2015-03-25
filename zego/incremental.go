@@ -6,7 +6,7 @@ import (
 
 type IncrementalTicketArray struct {
 	Count         int      `json:"count"`
-	EndTime       string   `json:"end_time"`
+	EndTime       uint     `json:"end_time"`
 	Created       string   `json:"created"`
 	Next_page     string   `json:"next_page"`
 	Previous_page string   `json:"previous_page"`
