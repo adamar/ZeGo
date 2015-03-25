@@ -28,3 +28,19 @@ type Attachments struct {
 	Size        int           `json:"size"`
 	Thumbnails  []interface{} `json:"thumbnails"`
 }
+
+func (a Auth) ListComments(ticket_id string) (*CommentArray, error) {
+
+	CommentStruct := &CommentArray{}
+
+	path := "/api/v2/tickets/" + ticket_id + "/comments.json"
+	resource, err := api(a, "GET", path, "")
+	if err != nil {
+		return nil, err
+	}
+
+	json.Unmarshal([]byte(resource.Raw), CommentStruct)
+
+	return CommentStruct, nil
+
+}
