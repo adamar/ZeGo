@@ -17,7 +17,7 @@ type SingleTicket struct {
 }
 
 type Ticket struct {
-	Id                    uint32      `json:"id"`
+	Id                    uint64      `json:"id"`
 	URL                   string      `json:"url"`
 	ExternalId            string      `json:"external_id"`
 	CreatedAt             string      `json:"created_at"`
