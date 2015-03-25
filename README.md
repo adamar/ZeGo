@@ -10,6 +10,7 @@ ZeGo: Zendesk API wrapper for Golang
 
 A (hopefully) simple library for interfacing with the Zendesk v2 API
 
+This library is in flux, so please use Godeps (or similar).
 
 ## Usage:
 
@@ -98,3 +99,8 @@ json.Unmarshal([]byte(response.Raw), tickets)
 - GET `/api/v2/groups/assignable.json`
 
 - GET `/api/v2/groups/{id}.json`
+
+
+#### Incremental
+
+- GET `/api/v2/incremental/tickets.json`
