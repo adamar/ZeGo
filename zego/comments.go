@@ -4,6 +4,10 @@ import (
 	"encoding/json"
 )
 
+type CommentArray struct {
+	Comments []Comments `json:"comments"`
+}
+
 type Comments struct {
 	Id          int           `json:"id"`
 	Type        string        `json:"type"`
