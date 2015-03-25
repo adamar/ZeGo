@@ -1,9 +1,5 @@
 package zego
 
-import (
-	"encoding/json"
-)
-
 func (a Auth) rawGet(path string) (string, error) {
 
 	resource, err := api(a, "GET", path, "")
