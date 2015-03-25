@@ -104,3 +104,8 @@ json.Unmarshal([]byte(response.Raw), tickets)
 #### Incremental
 
 - GET `/api/v2/incremental/tickets.json`
+
+
+#### Comments
+
+- GET `/api/v2/tickets/{ticket_id}/comments.json`
