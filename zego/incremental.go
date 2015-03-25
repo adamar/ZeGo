@@ -4,9 +4,18 @@ import (
 	"encoding/json"
 )
 
-func (a Auth) IncrementalTicket(start_time string) (*TicketArray, error) {
+type IncrementalTicketArray struct {
+	Count         int      `json:"count"`
+	EndTime       string   `json:"end_time"`
+	Created       string   `json:"created"`
+	Next_page     string   `json:"next_page"`
+	Previous_page string   `json:"previous_page"`
+	Tickets       []Ticket `json:"tickets"`
+}
 
-	TicketStruct := &TicketArray{}
+func (a Auth) IncrementalTicket(start_time string) (*IncrementalTicketArray, error) {
+
+	TicketStruct := &IncrementalTicketArray{}
 
 	path := "/incremental/tickets.json?start_time=" + start_time
 	resource, err := api(a, "GET", path, "")
