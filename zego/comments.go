@@ -33,7 +33,7 @@ func (a Auth) ListComments(ticket_id string) (*CommentArray, error) {
 
 	CommentStruct := &CommentArray{}
 
-	path := "/api/v2/tickets/" + ticket_id + "/comments.json"
+	path := "/tickets/" + ticket_id + "/comments.json"
 	resource, err := api(a, "GET", path, "")
 	if err != nil {
 		return nil, err
