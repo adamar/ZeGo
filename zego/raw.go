@@ -1,6 +1,6 @@
 package zego
 
-func (a Auth) rawGet(path string) (string, error) {
+func (a Auth) RawGet(path string) (string, error) {
 
 	resource, err := api(a, "GET", path, "")
 	if err != nil {
