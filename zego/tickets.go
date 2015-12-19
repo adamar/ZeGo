@@ -16,6 +16,11 @@ type SingleTicket struct {
 	Ticket *Ticket `json:"ticket"`
 }
 
+type Field struct {
+	Id    uint64      `json:"id"`
+	Value interface{} `json:"value"`
+}
+
 type Ticket struct {
 	Id                    uint64      `json:"id"`
 	URL                   string      `json:"url"`
@@ -44,8 +49,8 @@ type Ticket struct {
 	Ticket_form_id        uint32      `json:"ticket_form_id"`
 	Sharing_agreement_ids interface{} `json:"sharing_agreement_ids"`
 	Via                   interface{} `json:"via"`
-	Custom_Fields         interface{} `json:"custom_fields"`
-	Fields                interface{} `json:"fields"`
+	Custom_Fields         []Field     `json:"custom_fields"`
+	Fields                []Field     `json:"fields"`
 }
 
 func (a Auth) ListTickets(pag ...string) (*TicketArray, error) {

@@ -1,22 +1,15 @@
-
 package zego
 
-
 import (
-        "testing"
-        "net/http/httptest"
-        "net/http"
-        "fmt"
-        "encoding/json"
-        "github.com/adamar/zego/zego"
-        )
-
-
+	"fmt"
+	"net/http"
+	"net/http/httptest"
+	"testing"
+)
 
 func TestGetTicket(t *testing.T) {
 
-
-    JSON := `
+	JSON := `
     {"tickets":[{
      "id":               35436,
      "url":              "https://company.zendesk.com/api/v2/tickets/35436.json",
@@ -106,29 +99,40 @@ func TestGetTicket(t *testing.T) {
   "sharing_agreement_ids": [84432]
 }],"next_page":"https://company.zendesk.com/api/v2/tickets.json?page=2","previous_page":null,"count":2}`
 
+	ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+		fmt.Fprintln(w, JSON)
+	}))
+	defer ts.Close()
 
+	auth := Auth{"user@example.com", "Password", ts.URL}
+	response, err := auth.ListTickets()
+	if err != nil {
+		t.Error(err)
+	}
 
+	if response.Tickets[0].Id != 35436 {
+		t.Error("Ticket JSON unmarshalling error")
+	}
 
-    ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-        w.Header().Set("Content-Type", "application/json")
-        fmt.Fprintln(w, JSON)
-    }))
-    defer ts.Close()
-
-    auth := zego.Auth{"user@example.com", "Password", ts.URL}
-    response, err := auth.ListTickets()
-    if err != nil {
-        t.Error(err)
-    }
-
-    tickets := &zego.TicketArray{}
-    json.Unmarshal([]byte(response.Raw), tickets)
-
-    if tickets.Tickets[0].Id != 35436 {
-        t.Error("Ticket JSON unmarshalling error")
-    }
-
+	wantFld := []struct {
+		id    uint64
+		value string
+	}{
+		{27642, "745"},
+		{27648, "yes"},
+	}
+	for i, fld := range response.Tickets[0].Custom_Fields {
+		if fld.Id != wantFld[i].id {
+			t.Errorf("Wanted custom field id %d, have %d", wantFld[i].id, fld.Id)
+		}
+		val, ok := fld.Value.(string)
+		if !ok {
+			t.Errorf("Value of custom field %d is not string but %T", i, fld.Value)
+		}
+		if val != wantFld[i].value {
+			t.Errorf("Wanted custom field value %s, have %s", wantFld[i].value, fld.Value)
+		}
+	}
 
 }
-
-
