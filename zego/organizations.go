@@ -5,7 +5,7 @@ type OrganizationArray struct {
 }
 
 type Organization struct {
-	Id                 int                    `json:"id"`
+	Id                 int64                  `json:"id"`
 	ExternalId         string                 `json:"external_id"`
 	Url                string                 `json:"url"`
 	Name               string                 `json:"name"`
@@ -14,7 +14,7 @@ type Organization struct {
 	DomainNames        []string               `json:"domain_names"`
 	Details            string                 `json:"details"`
 	Notes              string                 `json:"notes"`
-	GroupId            int                    `json:"group_id"`
+	GroupId            int64                  `json:"group_id"`
 	SharedTickets      bool                   `json:"shared_tickets"`
 	SharedComments     bool                   `json:"shared_comments"`
 	Tags               []string               `json:"tags"`
@@ -23,7 +23,7 @@ type Organization struct {
 
 type OrganizationalField struct {
 	OrgDropdown string  `json:"org_dropdown"`
-	OrgDecimal  float32 `json:"org_decimal"`
+	OrgDecimal  float64 `json:"org_decimal"`
 }
 
 func (a Auth) ListOrganizations() (*Resource, error) {

@@ -29,19 +29,19 @@ type Ticket struct {
 	Priority              string      `json:"priority"`
 	Status                string      `json:"status"`
 	Recipient             string      `json:"recipient"`
-	RequesterId           uint32      `json:"requester_id"`
-	SubmitterId           uint32      `json:"submitter_id"`
-	AssigneeId            uint32      `json:"assignee_id"`
-	OrganizationId        uint32      `json:"organization_id"`
-	GroupId               uint32      `json:"group_id"`
-	CollaboratorIds       []int32     `json:"collaborator_ids"`
-	ForumTopicId          uint32      `json:"forum_topic_id"`
-	ProblemId             uint32      `json:"problem_id"`
+	RequesterId           uint64      `json:"requester_id"`
+	SubmitterId           uint64      `json:"submitter_id"`
+	AssigneeId            uint64      `json:"assignee_id"`
+	OrganizationId        uint64      `json:"organization_id"`
+	GroupId               uint64      `json:"group_id"`
+	CollaboratorIds       []int64     `json:"collaborator_ids"`
+	ForumTopicId          uint64      `json:"forum_topic_id"`
+	ProblemId             uint64      `json:"problem_id"`
 	HasIncidents          bool        `json:"has_incidents"`
 	DueAt                 string      `json:"due_at"`
 	Tags                  []string    `json:"tags"`
 	Satisfaction_rating   string      `json:"satisfaction_rating"`
-	Ticket_form_id        uint32      `json:"ticket_form_id"`
+	Ticket_form_id        uint64      `json:"ticket_form_id"`
 	Sharing_agreement_ids interface{} `json:"sharing_agreement_ids"`
 	Via                   interface{} `json:"via"`
 	Custom_Fields         interface{} `json:"custom_fields"`
