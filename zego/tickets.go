@@ -132,3 +132,14 @@ func (a Auth) CreateTicket(data string) (*Resource, error) {
 	return resource, nil
 
 }
+
+func (a Auth) UpdateTicket(ticketID string, data string) (*Resource, error) {
+	path := "/tickets/" + ticketID + ".json"
+	resource, err := api(a, "PUT", path, data)
+	if err != nil {
+		return nil, err
+	}
+
+	return resource, nil
+
+}
