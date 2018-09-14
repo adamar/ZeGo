@@ -13,7 +13,7 @@ type SingleUser struct {
 }
 
 type User struct {
-	Id                    uint32         `json:"id"`
+	Id                    uint64         `json:"id"`
 	Url                   string         `json:"url"`
 	Name                  string         `json:"name"`
 	External_id           string         `json:"external_id"`
@@ -25,7 +25,7 @@ type User struct {
 	Shared                bool           `json:"shared"`
 	Shared_agent          bool           `json:"shared_agent"`
 	Locale                string         `json:"locale"`
-	Locale_id             uint32         `json:"locale_id"`
+	Locale_id             uint64         `json:"locale_id"`
 	Time_zone             string         `json:"time_zone"`
 	Last_login_at         string         `json:"last_login_at"`
 	Email                 string         `json:"email"`
@@ -33,9 +33,9 @@ type User struct {
 	Signature             string         `json:"signature"`
 	Details               string         `json:"details"`
 	Notes                 string         `json:"notes"`
-	Organization_id       uint32         `json:"organization_id"`
+	Organization_id       uint64         `json:"organization_id"`
 	Role                  string         `json:"role"`
-	Customer_role_id      uint32         `json:"custom_role_id"`
+	Customer_role_id      uint64         `json:"custom_role_id"`
 	Moderator             bool           `json:"moderator"`
 	Ticket_restriction    string         `json:"ticket_restriction"`
 	Only_private_comments bool           `json:"only_private_comments"`
@@ -55,7 +55,7 @@ type Users_Photo struct {
 }
 
 type User_Field struct {
-	UserDecimal  float32 `json:"user_decimal"`
+	UserDecimal  float64 `json:"user_decimal"`
 	UserDropdown string  `json:"user_dropdown"`
 	UserDate     string  `json:"user_date"`
 }

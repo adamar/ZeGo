@@ -1,22 +1,17 @@
-
-package zego
-
+package zego_test
 
 import (
-        "testing"
-        "net/http/httptest"
-        "net/http"
-        "fmt"
-        "encoding/json"
-        "github.com/adamar/zego/zego"
-        )
+	"fmt"
+	"net/http"
+	"net/http/httptest"
+	"testing"
 
-
+	"github.com/adamar/ZeGo/zego"
+)
 
 func TestGetTicket(t *testing.T) {
 
-
-    JSON := `
+	JSON := `
     {"tickets":[{
      "id":               35436,
      "url":              "https://company.zendesk.com/api/v2/tickets/35436.json",
@@ -106,29 +101,20 @@ func TestGetTicket(t *testing.T) {
   "sharing_agreement_ids": [84432]
 }],"next_page":"https://company.zendesk.com/api/v2/tickets.json?page=2","previous_page":null,"count":2}`
 
+	ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+		fmt.Fprintln(w, JSON)
+	}))
+	defer ts.Close()
 
+	auth := &zego.Auth{Username: "user@example.com", Password: "Password", Subdomain: ts.URL}
+	tickets, err := auth.ListTickets()
+	if err != nil {
+		t.Error(err)
+	}
 
-
-    ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-        w.Header().Set("Content-Type", "application/json")
-        fmt.Fprintln(w, JSON)
-    }))
-    defer ts.Close()
-
-    auth := zego.Auth{"user@example.com", "Password", ts.URL}
-    response, err := auth.ListTickets()
-    if err != nil {
-        t.Error(err)
-    }
-
-    tickets := &zego.TicketArray{}
-    json.Unmarshal([]byte(response.Raw), tickets)
-
-    if tickets.Tickets[0].Id != 35436 {
-        t.Error("Ticket JSON unmarshalling error")
-    }
-
+	if tickets.Tickets[0].Id != 35436 {
+		t.Error("Ticket JSON unmarshalling error")
+	}
 
 }
-
-
